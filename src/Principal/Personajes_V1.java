@@ -5,8 +5,9 @@
  */
 package Principal;
 
-import Constructoras.Controlador;
+import fabricas.Controlador;
 import Constructoras.Constructora_Abstracta;
+import Constructoras.Constructora_Concreta;
 import Constructoras.PersonajesCreador;
 import Personajes.Personaje;
 import java.util.Scanner;
@@ -26,10 +27,10 @@ public class Personajes_V1 {
         System.out.println("Cuantos personajes desea crear? ");
         int numeroPersonajes = Integer.parseInt(sc.nextLine());
         
-        Constructora_Abstracta creadora = Controlador.getSingletonInstance();
-        creadora.builderArma(tipo);
-        creadora.builderArmadura(tipo);
-        creadora.buildPersonaje(tipo);
+        Constructora_Abstracta creadora = new Constructora_Concreta(tipo);
+        creadora.builderArma();
+        creadora.builderArmadura();
+        creadora.buildPersonaje();
         Personaje personaje = creadora.getPersonaje();
         
         Personaje[] listaPersonajes = new Personaje[numeroPersonajes];

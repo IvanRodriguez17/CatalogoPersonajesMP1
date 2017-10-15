@@ -8,6 +8,8 @@ package Constructoras;
 import Personajes.Arma;
 import Personajes.Armadura;
 import Personajes.Personaje;
+import fabricas.Controlador;
+import fabricas.Fabrica_Abstracta;
 
 /**
  *
@@ -15,25 +17,18 @@ import Personajes.Personaje;
  */
 public abstract class Constructora_Abstracta {
     
+    protected Fabrica_Abstracta fabrica;
+    protected Controlador control;
+    protected Arma arma;
+    protected Armadura armadura;
     protected Personaje personaje;
-    protected Arma arma_personaje;
-    protected Armadura armadura_personaje;
     
-    //dejara a la hija construir al personaje segun su tipo;
-    public abstract void buildPersonaje(String tipo);
-    public abstract void builderArma(String tipo);
-    public abstract void builderArmadura(String tipo);
+    public abstract void buildPersonaje();
+    public abstract void builderArma();
+    public abstract void builderArmadura();
     
 
     public Personaje getPersonaje() {
         return personaje;
-    }
-
-    public void setPersonaje(Personaje personaje) {
-        this.personaje = personaje;
-    }
-
-    public Arma getArma_personaje() {
-        return arma_personaje;
     }
 }
